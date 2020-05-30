@@ -8,6 +8,7 @@ import com.luban.provider.LocalRegister;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.io.ObjectInputStream;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
@@ -17,6 +18,10 @@ public class HttpServerHandler {
 
         try {
             Invocation invocation = JSONObject.parseObject(req.getInputStream(), Invocation.class);
+
+            // JDK11之前用
+//            ObjectInputStream ois = new ObjectInputStream(req.getInputStream());
+//            Invocation invocation = (Invocation)ois.readObject();
 
             var interfaceName = invocation.getInterfaceName();
             var implClass = LocalRegister.get(interfaceName);

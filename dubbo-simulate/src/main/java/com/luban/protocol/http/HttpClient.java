@@ -2,11 +2,13 @@ package com.luban.protocol.http;
 
 import com.alibaba.fastjson.JSONObject;
 import com.luban.framework.Invocation;
+import org.apache.commons.io.IOUtils;
 
 import java.io.IOException;
-import java.net.MalformedURLException;
-import java.net.URI;
-import java.net.URISyntaxException;
+import java.io.InputStream;
+import java.io.ObjectOutputStream;
+import java.io.OutputStream;
+import java.net.*;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 
@@ -26,6 +28,7 @@ public class HttpClient {
 
             String result = response.body();
 
+            // JDK11之前用
 //            URL url = new URL("http", hostname, port, "/");
 //            HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
 //
