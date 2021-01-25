@@ -1,2 +1,2 @@
-http=com.luban.protocol.http.HttpProtocol
-dubbo=com.luban.protocol.dubbo.DubboProtocol
+http=com.tuling.framework.protocol.http.HttpProtocol
+dubbo=com.tuling.framework.protocol.dubbo.DubboProtocol
