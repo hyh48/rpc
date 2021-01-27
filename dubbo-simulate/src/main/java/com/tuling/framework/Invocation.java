@@ -7,14 +7,15 @@ public class Invocation implements Serializable {
 
     private String interfaceName;
     private String methodName;
+    private Class[] paramTypes;
     private Object[] params;
-    private Class[] paramType;
 
-    public Invocation(String interfaceName, String methodName, Object[] params, Class[] paramType) {
+
+    public Invocation(String interfaceName, String methodName, Class[] paramTypes, Object[] params) {
         this.interfaceName = interfaceName;
         this.methodName = methodName;
+        this.paramTypes = paramTypes;
         this.params = params;
-        this.paramType = paramType;
     }
 
     public String getInterfaceName() {
@@ -41,11 +42,11 @@ public class Invocation implements Serializable {
         this.params = params;
     }
 
-    public Class[] getParamType() {
-        return paramType;
+    public Class[] getParamTypes() {
+        return paramTypes;
     }
 
-    public void setParamType(Class[] paramType) {
-        this.paramType = paramType;
+    public void setParamTypes(Class[] paramTypes) {
+        this.paramTypes = paramTypes;
     }
 }

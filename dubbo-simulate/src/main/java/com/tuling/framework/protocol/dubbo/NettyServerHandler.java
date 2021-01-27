@@ -15,7 +15,7 @@ public class NettyServerHandler extends ChannelInboundHandlerAdapter {
 
         Class serviceImpl = LocalRegister.get(invocation.getInterfaceName());
 
-        Method method = serviceImpl.getMethod(invocation.getMethodName(), invocation.getParamType());
+        Method method = serviceImpl.getMethod(invocation.getMethodName(), invocation.getParamTypes());
         Object result = method.invoke(serviceImpl.newInstance(), invocation.getParams());
 
         System.out.println("Netty-------------" + result.toString());

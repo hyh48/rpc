@@ -24,7 +24,7 @@ public class HttpServerHandler {
 
             var interfaceName = invocation.getInterfaceName();
             var implClass = LocalRegister.get(interfaceName);
-            Method method = implClass.getMethod(invocation.getMethodName(), invocation.getParamType());
+            Method method = implClass.getMethod(invocation.getMethodName(), invocation.getParamTypes());
             var result = (String) method.invoke(implClass.newInstance(), invocation.getParams());
 
             System.out.println("tomcat:" + result);
